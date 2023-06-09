@@ -12,22 +12,21 @@ import { setFilter } from 'redux/contactsSlice';
 import { useEffect } from 'react';
 import { fetchContactsThunk } from 'redux/operations';
 
-
 export const Contacts = () => {
-	
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(fetchContactsThunk())
-	}, [dispatch])
+		dispatch(fetchContactsThunk());
+	}, [dispatch]);
 
 	const contacts = useSelector(selectContacts);
 	const filter = useSelector(selectFilter);
-	let contactsList = contacts
+	let contactsList = contacts;
 
 	if (filter) {
 		contactsList = contacts.filter(contact =>
-			contact.name.toLowerCase().includes(filter.toLowerCase()))
-	} 
+			contact.name.toLowerCase().includes(filter.toLowerCase())
+		);
+	}
 
 	return (
 		<StyledContactsContainer>
