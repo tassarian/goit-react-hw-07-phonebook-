@@ -9,11 +9,16 @@ import {
 import { Contact } from './ContactsList';
 import { selectContacts, selectFilter } from 'redux/selectors';
 import { setFilter } from 'redux/contactsSlice';
+import { useEffect } from 'react';
+import { fetchContactsThunk } from 'redux/operations';
 
 
 export const Contacts = () => {
 	
 	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(fetchContactsThunk())
+	}, [dispatch])
 
 	const contacts = useSelector(selectContacts);
 	const filter = useSelector(selectFilter);

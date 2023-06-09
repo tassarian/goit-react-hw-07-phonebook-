@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { StyledDeleteBtn } from './Contacts.styled';
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContactThunk } from 'redux/operations';
 
 export const Contact = ({ contact }) => {
 	const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export const Contact = ({ contact }) => {
 		<>
 			<span>{contact.name}</span>: {contact.number}
 			<StyledDeleteBtn
-				onClick={() => dispatch(deleteContact(contact.id))}
+				onClick={() => dispatch(deleteContactThunk(contact.id))}
 				type="button"
 			>
 				Delete
@@ -19,3 +19,4 @@ export const Contact = ({ contact }) => {
 		</>
 	);
 };
+

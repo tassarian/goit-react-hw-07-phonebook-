@@ -1,5 +1,4 @@
 import { Section, Title } from './Global.styled';
-
 import { Form } from './Form/Form';
 import { Contacts } from './Contacts/Contacts';
 

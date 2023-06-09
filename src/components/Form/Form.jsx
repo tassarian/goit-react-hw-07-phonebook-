@@ -8,8 +8,8 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 
 import { nanoid } from '@reduxjs/toolkit';
-import { addContact } from 'redux/contactsSlice';
 import { selectContacts } from 'redux/selectors';
+import { addContactThunk } from 'redux/operations';
 
 export const Form = () => {
 
@@ -31,7 +31,7 @@ export const Form = () => {
 		);
 		if (!existingContact) {
 			dispatch(
-				addContact({
+				addContactThunk({
 					id: nanoid(),
 					name: name,
 					number: number,
