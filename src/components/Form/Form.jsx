@@ -33,8 +33,8 @@ export const Form = () => {
 			dispatch(
 				addContactThunk({
 					id: nanoid(),
-					name: name,
-					number: number,
+					name,
+					number,
 				})
 			);
 			form.reset();
